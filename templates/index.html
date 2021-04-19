@@ -1,1 +1,118 @@
 {% extends "base.html" %}
+
+{% block process %}
+{{process_list}}
+{% endblock %}
+
+{% block tables %}
+{{table_list}}
+{% endblock %}
+
+{% block antecedent %}
+{{antecedent}}
+{% endblock %}
+
+{% block consequent %}
+{{consequent}}
+{% endblock %}
+
+{% block buttons %}
+<form action="#" method="POST">
+<input  type="button" value="full_undo" name="full_undo">
+<input  type="button" value="undo" name="undo">
+<input  type="button" value="pause" name="pause">
+<input  type="button" value="next" name="next">
+<input  type="button" value="full_next" name="full_next">
+</form>
+{% endblock %}
+
+{%block selected_node %}
+<p>selected node is </p>
+{% endblock %}
+
+
+{%block manual_entry %}
+<form action="#" method="POST">
+    <p>ENTER THE COLUMN NAME:</p>
+    <p><input type="text" name="nm"/> </p> <!--input space-->
+    <p><input type="submit" value="submit" /></p><!--creating submit function-->
+</form>
+{% endblock %}
+
+{%block user_options %}
+<form action="#" method="POST"></form>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+    <label class="form-check-label" for="inlineRadio1"><h3>ENTROPY</h3></label>
+  </div>
+  
+          <form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  OPTION1
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  OPTION2
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                  OPTION3
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  OPTION4
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                  OPTION5
+                </label>
+              </div>
+            </form>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+    <label class="form-check-label" for="inlineRadio2"><h3>FREQUENCY</h3></label>
+    </div>
+        <form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                <label class="form-check-label" for="exampleRadios1">
+                  OPTION1
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  OPTION2
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                  OPTION3
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  OPTION4
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                  OPTION5
+                </label>
+              </div>
+          </form>
+        </form>
+{% endblock %}

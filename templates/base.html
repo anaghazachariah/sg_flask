@@ -10,15 +10,22 @@
 * {
   box-sizing: border-box;
 }
-
+ul { 
+    padding: 0px;
+ }
+ li {
+    float: left;
+    width: auto;
+    list-style: outside none none;
+ }
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 header {/*bock1*/
   float: left;
-  width: 30%;
-  height: 300px; 
+  width: 60%;
+  height: 150px; 
   background: #ccc;
   padding: 20px;
 }
@@ -27,27 +34,27 @@ header {/*bock1*/
 nav {/*bock2*/
   float: left;
   padding: 20px;
-  width: 70%;
+  width: 40%;
   background-color: #f1f1f1;
-  height: 300px;}
+  height: 150px;}
 
-article {/*bock3*/
+
+section{/*bock3*/
   float: left;
-  width: 30%;
-  height: 600px;
+  padding: 20px;
+  width: 60%;
+  background-color: #f1f1f1;
+  height: 900px;
+}
+
+
+article {/*bock4*/
+  float: left;
+  width: 40%;
+  height: 900px;
   background: #ccc;
   padding: 20px;
 }
-
-
-section{/*bock4*/
-  float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 600px;
-}
-
 
 
 
@@ -55,96 +62,22 @@ section{/*bock4*/
 </head>
 <body>
   <header>
-      <p>BLOCK1</p>
+      <p> PROCESS INVLOVED ARE  {% block process %}{% endblock %}<br> </p>
+      <p> TABLES INVLOVED ARE  {% block tables %}{% endblock %}</p>
   </header>
+
   <nav>
-    <p>BLOCK2</p>
+    <p> {% block antecedent %}{% endblock %} -> {% block consequent %}{% endblock %}</p>
   </nav>
   <section>
-    <p>BLOCK3</p>
+    {% block buttons %}{% endblock %}
   </section>
   
   <article>
-    <p>SELECTED NODE IS </p>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
-        <label class="form-check-label" for="inlineRadio1"><h3>ENTROPY</h3></label>
-      </div>
-      
-              <form>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      OPTION1
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      OPTION2
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
-                    <label class="form-check-label" for="exampleRadios3">
-                      OPTION3
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      OPTION4
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
-                    <label class="form-check-label" for="exampleRadios3">
-                      OPTION5
-                    </label>
-                  </div>
-                </form>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2"><h3>FREQUENCY</h3></label>
-        </div>
-            <form>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-                    <label class="form-check-label" for="exampleRadios1">
-                      OPTION1
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      OPTION2
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
-                    <label class="form-check-label" for="exampleRadios3">
-                      OPTION3
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      OPTION4
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
-                    <label class="form-check-label" for="exampleRadios3">
-                      OPTION5
-                    </label>
-                  </div>
-              </form>
-        <form action="#" method="POST">
-        <p>ENTER THE COLUMN NAME:</p>
-        <p><input type="text" name="nm"/> </p> <!--input space-->
-        <p><input type="submit" value="submit" /></p><!--creating submit function-->
-</form>
-
+    {%block selected_node %}{% endblock %}
+    {%block user_options %}{% endblock %}
+   
+    {%block manual_entry %}{% endblock %}
   </article>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
