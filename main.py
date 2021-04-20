@@ -5,8 +5,10 @@ app=Flask(__name__)
 @app.route("/",methods=["POST","GET"])
 def home():
     if request.method=="POST":
-       # HERE WE HAVE TO READ THE NODE NAME WHICH WE CLICKED AND HAVE TO RETURN A NEW TREE
-        
+        x=(request.form)
+        for i in x:
+            button_clicked=i#NODE WHICH WE CLICKED
+        print(button_clicked)
         return render_template("index.html",cv={'A':['B','C']})
     else:
         return render_template("index.html",cv={'A':['-','-']})
