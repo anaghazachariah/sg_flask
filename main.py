@@ -9,7 +9,7 @@ def home():
         for i in x:
             button_clicked=i#NODE WHICH WE CLICKED
         print(button_clicked)
-        return render_template("index.html",cv={'A':['B','C']})
+        return render_template("index.html",cv={'A':['B','C'],'D':['BA','CA']})
     else:
         return render_template("index.html",cv={'A':['-','-']})
 
