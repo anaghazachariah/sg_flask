@@ -9,10 +9,6 @@ def home():
     global mes
     global xx
     if request.method=="POST":
-        x=(request.form)
-        for i in x:
-            button_clicked=i#NODE WHICH WE CLICKED
-        print(button_clicked)
         with open("templates/indexx.html", "r") as f:
             lines = f.readlines()
         f.close()
@@ -21,15 +17,29 @@ def home():
                 if line.strip("\n") != mes:
                     f.write(line)
         f.close()
-        f = open('templates/indexx.html','a')
-        mes = """<ul><li><input  type='submit'  class='btn-lg' value='A' name='p'><ul><li><input  type='submit'   class='btn-lg' value='B' name='TRUEE_C'></li><li><input  type='submit'  class='btn-lg' value='C' name='FALSEE_C'></li></ul></li></ul></form></div></div></div> {% endblock %}"""
+        f = open('templates/indexx.html','a')           
+        x=(request.form)
+        for i in x:
+            button_clicked=i
+        print(button_clicked)#NODE WHICH WE CLICKED
+
+
+
+        #sample from backend
+        venki_l1={1:'A',2:'-',3:'-'}
+        venki_k2={1:[[2,'True'],[3,'False']]}
+
+        #string to be generated from venkitesh's code for sample backend
+        mes = """<ul><li><input  type='submit'  class='btn-lg' value='A' name='A'><ul><li><input  type='submit'   class='btn-lg' value='-' name='TRUE_A'></li><li><input  type='submit'  class='btn-lg' value='-' name='FALSE_A'></li></ul></li></ul>"""
+
+        mes=mes+"""</form></div></div></div> {% endblock %}"""
         f.write(mes)
         f.write("\n")
         f.close()
         return render_template("indexx.html")
     else:
         f = open('templates/indexx.html','a')
-        mes = """<ul><li><input  type='submit'  class='btn-lg' value='A' name='p'><ul><li><input  type='submit'   class='btn-lg' value='-' name='TRUE_c'></li><li><input  type='submit'  class='btn-lg' value='-' name='FALSE_c'></li></ul></li></ul></form></div></div></div> {% endblock %}"""
+        mes = """<ul><li><input type='submit' class='btn-lg' value='-' name='parent' ></li></ul></form></div></div></div> {% endblock %}"""
         f.write(mes)
         f.write("\n")
         f.close()
