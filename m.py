@@ -56,8 +56,6 @@ def home():
                 if line.strip("\n") != mes:
                     f.write(line)
         f.close()
-
-        
         #from backend
         venki_l1={1:'A',2:'-',3:'-'}#1 should be root
         venki_k2={1:[[2,'True'],[3,'False']]}
