@@ -3,8 +3,8 @@ import webbrowser
 from flask import render_template,url_for
 from flask import request
 app=Flask(__name__)
-def to_strings(dic1,dic2,key,msg):
-
+def to_strings(dic1,dic2,key,name):
+    global msg
     if key==1:
         msg=msg+f""" <ul><li><input  type='submit'  class='btn-lg' value={dic1[key]} name={dic1[key]}>"""
         msg=msg+"""<ul>"""
@@ -12,17 +12,19 @@ def to_strings(dic1,dic2,key,msg):
         for i in range(0,len(key_val)):
             x=key_val[i][0]
             y=key_val[i][1]
+            if i==0:
+                child="""True"""
+            else:
+                child="""False"""
             if x not in dic2.keys():
-                if i==0:
-                    child="""True"""
-                else:
-                    child="""False"""
                 msg=msg+f"""<li><input  type='submit'   class='btn-lg' value='-' name='{child}_{dic1[key]}'></li>"""
             else:
-                to_strings(dic1,dic2,x,msg)
+                name=child+'_'+dic1[key]+name
+                to_strings(dic1,dic2,x,name)
         msg=msg+"""</ul></li></ul"""
     else:
-        msg=msg+f"""<li><input  type='submit'  class='btn-lg' value={dic1[key]} name={dic1[key]}>"""
+        
+        msg=msg+f"""<li><input  type='submit'  class='btn-lg' value={dic1[key]} name={name}>"""
         msg=msg+"""<ul>"""
         key_val=dic2[key]
         for i in range(0,len(key_val)):
@@ -33,9 +35,10 @@ def to_strings(dic1,dic2,key,msg):
                     child="""True"""
                 else:
                     child="""False"""
-                msg=msg+f"""<li><input  type='submit'   class='btn-lg' value='-' name='{child}_{dic1[key]}'></li>"""
+                msg=msg+f"""<li><input  type='submit'   class='btn-lg' value='-' name='{child}_{dic1[key]},{name}'></li>"""
             else:
-                to_strings(dic1,dic2,x,msg)
+                name=child+'_'+dic1[key]+','+name
+                to_strings(dic1,dic2,x,name)
         msg=msg+"""</ul></li></ul"""
     return msg
 @app.route("/",methods=["POST","GET"])
@@ -57,11 +60,13 @@ def home():
                     f.write(line)
         f.close()
 
-        
+
         #from backend
+        '''venki_l1={1:'A',2:'C',3:'-',4:'-',5:'-'}
+        venki_k2={1:[[2,'True'],[3,'False']],2:[[4,'True'],[5,'False']]}'''
         venki_l1={1:'A',2:'-',3:'-'}#1 should be root
         venki_k2={1:[[2,'True'],[3,'False']]}
-        mes=to_strings(venki_l1,venki_k2,1,msg)
+        mes=to_strings(venki_l1,venki_k2,1,'')
         mes=mes+"""</form></div></div></div> {% endblock %}"""
 
         
